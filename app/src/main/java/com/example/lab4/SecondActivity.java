@@ -12,24 +12,14 @@ public class SecondActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.lab4.MainActivity.extra.REPLY";
 
-    private EditText mReply;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        mReply = findViewById(R.id.editText_second);
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        TextView textView = findViewById(R.id.text_message);
+        TextView textView = findViewById(R.id.passage_text);
         textView.setText(message);
     }
 
-    public void returnReply(View view) {
-        String reply = mReply.getText().toString();
-        Intent replyIntent = new Intent();
-        replyIntent.putExtra(EXTRA_REPLY, reply);
-        setResult(RESULT_OK, replyIntent);
-        finish();
-    }
 }
